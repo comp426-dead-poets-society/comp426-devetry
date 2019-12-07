@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const privRoot = new axios.create({
-  baseURL: "http://localhost:3000/public/private"
+  baseURL: "http://localhost:3000/private"
 });
 
 const pubRoot = new axios.create({
