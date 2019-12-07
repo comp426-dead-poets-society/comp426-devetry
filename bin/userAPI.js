@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const userRoot = new axios.create({
-  baseURL: "http://localhost:3000/public/user"
+  baseURL: "http://localhost:3000/user"
 });
 
 const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public/public"
+    baseURL: "http://localhost:3000/public"
   });
 
 
