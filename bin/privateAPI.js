@@ -8,11 +8,6 @@ const pubRoot = new axios.create({
     baseURL: "http://localhost:3000/public"
   });
 
-//TODO: CREATE GETCURRENTUSER FUNCTION
-function getCurrentUser() {
-    return "Dan Hirst"
-}
-
 
 //returns number of comments for a particular poem. Used for creating new ids
 export async function getNumComments(parentId) {
@@ -37,10 +32,10 @@ async function getNewCommentId(parentId) {
     return count
 }  
 //creates a new comment for a specific poem
-export async function createComment({parentId,body=""}) {
+export async function createComment({parentId,body="",user}) {
 
     let createdAt = Date.now();
-    let author = getCurrentUser();
+    let author = user;
     let commentId = await getNewCommentId(parentId)
     return await privRoot.post(`/${parentId}/${commentId}`, {
         data: {author, body, createdAt},
