@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './App.scss';
 import Loading from "./components/Loading"
 import {getStatus} from "./api/accountAPI"
-import Login from "./components/Login"
+import ModalLogin from "./components/ModalLogin"
 import Logout from "./components/Logout"
-import CreateAccount from "./components/CreateAccount"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState('checking');
@@ -22,10 +22,7 @@ function App() {
   return (
     <div className="App">
       {loggedIn === 'invalid' ?
-        <div className="account-components">
-          <Login/>
-          <CreateAccount/>
-        </div>
+        <ModalLogin />
         :
         <h3>
           <span className="is-italic is-size-6">logged in as</span> {loggedIn.user.name}
