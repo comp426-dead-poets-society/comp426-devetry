@@ -1,13 +1,8 @@
-import axios from 'axios';
+import {getAxiosInstance} from "../../config/Axios";
 
-const userRoot = new axios.create({
-  baseURL: "http://localhost:3000/user"
-});
+const userRoot = getAxiosInstance('/user');
 
-const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
-  });
-
+const pubRoot = getAxiosInstance('/public');
 
 
 //TODO: add function that returns current username

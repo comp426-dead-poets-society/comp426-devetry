@@ -1,2 +1,7 @@
 {
+  "users": {
+    "samlowe": {
+      "passwordHash": "$2b$10$aHvuj2871Sk/O7B/dOxCYOXvPZhX4a1UvlOwMNZr0f/jSi2AXFM9C"
+    }
+  }
 }

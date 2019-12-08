@@ -1,18 +1,14 @@
-import axios from 'axios';
+import {getAxiosInstance} from "../../config/Axios";
 
-const privRoot = new axios.create({
-  baseURL: "http://localhost:3000/private"
-});
+const privRoot = getAxiosInstance('/private');
 
-const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
-  });
+const pubRoot = getAxiosInstance('/public');
 
 //TODO: CREATE GETCURRENTUSER FUNCTION
+//SAM: We actually don't need this. We'll store user in state on front end and can pass it to the backend
 function getCurrentUser() {
     return "Dan Hirst"
 }
-
 
 //returns number of comments for a particular poem. Used for creating new ids
 export async function getNumComments(parentId) {
