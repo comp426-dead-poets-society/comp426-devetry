@@ -9,6 +9,7 @@ import UserPage from './pages/UserPage'
 import SearchPage from './pages/SearchPage'
 import PostPage from './pages/PostPage'
 import NotFound from './pages/NotFound'
+import SubmitPage from './pages/SubmitPage'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState('checking');
@@ -33,6 +34,7 @@ function App() {
           <Route path="/users" component={UserPage} />
           <Route path="/search" component={SearchPage} />
           <Route path="/post" component={PostPage} />
+          <Route path="/submit" component={SubmitPage} />
           <Route component={NotFound} />
         </Switch>
       </div>
