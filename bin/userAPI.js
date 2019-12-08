@@ -9,12 +9,6 @@ const pubRoot = new axios.create({
   });
 
 
-
-//TODO: add function that returns current username
-function getCurrentUser() {
-    return "Dan Hirst"
-}
-
 //Generates new id for the public feed of poems
 async function getNewPublicId() {
     let count;
@@ -64,10 +58,9 @@ export async function getNumUserPoems(parentId) {
   }
 
 //Creates a new poem
-export async function createPoem({title="untitled",body="",isLive=false}) {
+export async function createPoem({title="untitled",body="",isLive=false,author}) {
     let createdAt = Date.now();
     let updatedAt = createdAt;
-    let author = getCurrentUser();
     let id = await getNewUserId()
     let pubId;
     
