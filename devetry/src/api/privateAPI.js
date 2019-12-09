@@ -4,12 +4,6 @@ const privRoot = getAxiosInstance('/private');
 
 const pubRoot = getAxiosInstance('/public');
 
-//TODO: CREATE GETCURRENTUSER FUNCTION
-//SAM: We actually don't need this. We'll store user in state on front end and can pass it to the backend
-function getCurrentUser() {
-    return "Dan Hirst"
-}
-
 //returns number of comments for a particular poem. Used for creating new ids
 export async function getNumComments(parentId) {
     try {
@@ -33,10 +27,10 @@ async function getNewCommentId(parentId) {
     return count
 }  
 //creates a new comment for a specific poem
-export async function createComment({parentId,body=""}) {
+export async function createComment({parentId,body="",user}) {
 
     let createdAt = Date.now();
-    let author = getCurrentUser();
+    let author = user;
     let commentId = await getNewCommentId(parentId)
     return await privRoot.post(`/${parentId}/${commentId}`, {
         data: {author, body, createdAt},
