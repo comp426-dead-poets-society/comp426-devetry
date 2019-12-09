@@ -1,0 +1,41 @@
+@import "~bulma/bulma.sass";
+
+.App {
+    background-color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoadingApp {
+    font-family: sans-serif;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: #ffffff;
+}
+
+h3.loading {
+    position: absolute;
+    top: 61%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: "#ffffff";
+    text-align: "center";
+}
+
+.account-components {
+    div.box {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  
+  
+    display: flex;
+    align-items: baseline;
+}
