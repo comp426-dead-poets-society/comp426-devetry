@@ -1,4 +1,4 @@
-import {getAxiosInstance} from "../../config/Axios";
+import {getAxiosInstance} from "../config/Axios";
 
 const pubRoot = getAxiosInstance('/public');
 
@@ -12,6 +12,11 @@ export async function getNumPoems() {
 //SAM: Are we worried about pagination? For like infinite scrolling and stuff. 
 export async function getAllPublicPoems() {
     return (await pubRoot.get('/public'))['data']['result'];
+}
+
+//Returns specific poem by id
+export async function getPoem(id) {
+    return (await pubRoot.get(`/public/${id}`))['data']['result'];
 }
 
 
