@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
-import {getPoem} from '../api/publicAPI';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { getPoem } from '../api/publicAPI';
 import '../App.scss';
-import Loading from "../components/Loading"
-import { getStatus } from "../api/accountAPI"
-import Header from '../components/Header'
-import MainPage from './MainPage'
-import UserPage from './UserPage'
-import SearchPage from './SearchPage'
-import NotFound from './NotFound'
-import SubmitPage from './SubmitPage'
+import LikeButton from '../components/LikeButton';
 
 export default class PostPage extends Component {
 
@@ -27,22 +19,59 @@ export default class PostPage extends Component {
         }
     }
 
-    componentDidMount() {
-        this.setState({ poemId: this.props.match.params.id});
+
+    async componentDidMount() {
+        console.log('I was triggered during componentDidMount')
+        this.setState({ poemId: this.props.match.params.id });
+        let poem;
         try {
-            //TODO: Set poem state with values from grabbed poem
-            //poem = getPoem(this.props.match.params.id);
+            poem = await getPoem(this.props.match.params.id);
+            console.log(`This poem: ${poem.title}`)
+            this.setState({
+                title: poem.title,
+                body: poem.body,
+                author: poem.author,
+                createdAt: poem.createdAt,
+                updatedAt: poem.createdAt,
+                likeCount: poem.likeCount
+            });
         } catch (error) {
-            return <div> 404. Poem does not exist!</div>
+            console.log(`This poem is ${poem} and does not exist.`)
         }
-        
+
 
     }
 
     render() {
+        console.log('I was triggered during render')
+        if (this.state.createdAt === undefined) {
+            return (<div> 404. Poem does not exist!</div>)
+        }
         return (
-            <div>
-                <p>{this.state.poemId}</p>
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">
+                        {this.state.body}
+                    </p>
+                    <p class="subtitle">
+                        {this.state.author}
+                    </p>
+                    <p>
+                        Created on {(new Date(this.state.createdAt).toDateString())}
+                    </p>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item">
+                        <span>
+                            Last modified at {(new Date(this.state.updatedAt).toLocaleTimeString())} on {(new Date(this.state.updatedAt).toLocaleDateString())}
+                        </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span>
+                            <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount}/>
+                        </span>
+                    </p>
+                </footer>
             </div>
         )
     }

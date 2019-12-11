@@ -11,7 +11,12 @@
     "body": "To be or not to be",
     "author": "test_author",
     "createdAt": 1576041221832,
-    "likeCount": 0
+    "likeCount": 3770
   },
-  "counter": 2
+  "counter": 2,
+  "public": {
+    "1": {
+      "likeCount": 1
+    }
+  }
 }

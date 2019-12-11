@@ -2,15 +2,7 @@ import React, { Component } from 'react'
 import {} from '../api/publicAPI';
 import {createPoem} from '../api/userAPI';
 
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import '../App.scss';
-import Loading from "../components/Loading"
-import { getStatus } from "../api/accountAPI"
-import Header from '../components/Header'
-import MainPage from './MainPage'
-import UserPage from './UserPage'
-import SearchPage from './SearchPage'
-import NotFound from './NotFound'
 
 import PropTypes from 'prop-types';
 
