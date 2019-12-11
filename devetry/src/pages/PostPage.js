@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { getPoem } from '../api/publicAPI';
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
+import Post from '../components/Post';
 
 export default class PostPage extends Component {
 
+    /*
     constructor(props) {
         super(props);
 
@@ -48,30 +50,55 @@ export default class PostPage extends Component {
             return (<div> 404. Poem does not exist!</div>)
         }
         return (
-            <div class="card">
-                <div class="card-content">
-                    <p class="title">
-                        {this.state.body}
-                    </p>
-                    <p class="subtitle">
-                        {this.state.author}
-                    </p>
-                    <p>
-                        Created on {(new Date(this.state.createdAt).toDateString())}
-                    </p>
+            <div class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="title">
+                            {this.state.body}
+                        </p>
+                        <p class="subtitle">
+                            {this.state.author}
+                        </p>
+                        <p>
+                            Created on {(new Date(this.state.createdAt).toDateString())}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span>
+                                Last modified at {(new Date(this.state.updatedAt).toLocaleTimeString())} on {(new Date(this.state.updatedAt).toLocaleDateString())}
+                            </span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span>
+                                <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount} />
+                            </span>
+                        </p>
+                    </footer>
                 </div>
-                <footer class="card-footer">
-                    <p class="card-footer-item">
-                        <span>
-                            Last modified at {(new Date(this.state.updatedAt).toLocaleTimeString())} on {(new Date(this.state.updatedAt).toLocaleDateString())}
-                        </span>
-                    </p>
-                    <p class="card-footer-item">
-                        <span>
-                            <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount}/>
-                        </span>
-                    </p>
-                </footer>
+                <div class="card">
+                    <div class="card-content">
+                        <p class="subtitle">
+                            Comments
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    */
+
+    render() {
+        return (
+            <div class="container">
+                <Post poemId={this.props.match.params.id} />
+                <div class="card">
+                    <div class="card-content">
+                        <p class="subtitle">
+                            Comments
+                        </p>
+                    </div>
+                </div>
             </div>
         )
     }
