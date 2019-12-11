@@ -12,66 +12,72 @@ import UserPage from './UserPage'
 import SearchPage from './SearchPage'
 import NotFound from './NotFound'
 
-export default class SubmitPage extends Component {
+import PropTypes from 'prop-types';
 
+export default class SubmitPage extends Component {
+    
+    /*
     constructor(props) {
+
         super(props);
 
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeBody = this.onChangeBody.bind(this);
-        this.onChangeIsLive = this.onChangeIsLive.bind(this);
+        let propTypes = {
+            onChange: PropTypes.func
+          };
 
-        this.state = {
-            title: '',
-            body: '',
-            isLive: false,
-            author: 'should_be_username' //TODO: Figure out a way to pass logged in username here (Malik)
-        }
-    }
+        return (
+          <div className="box has-background-white content" style={{width: '500px'}}>
+            <h3 className="has-text-dark">New Todo</h3>
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              const title = e.target.title.value;
+              const body = e.target.body.value;
+              const isLive = e.target.isLive.value;
+              e.target.title.value = '';
+              e.target.body.value = '';
+              e.target.isLive.value = false;
+              let poem = {
+                  title: title,
+                  body: body,
+                  isLive: isLive,
+                  author: "test"
+              }
+              let poems = (await createPoem(poem));
+              if (props.onChange) props.onChange(poems);
+            }}>
+              <div className="field">
+                <input className="input" autoComplete={'off'} placeholder="Title" type="text" name="title"/>
+              </div>
+              <div className="field">
+                <input className="input" placeholder="Body" type="text" name="body"/>
+              </div>
+              <div className="field">
+                <input className="form-check-input" placeholder="Live" type="checkbox" name="isLive"/>
+              </div>
+              <input className="button is-primary" type="submit" value={"Add"}/>
+            </form>
+          </div>
+        );
+      }
+      */
 
-    onChangeTitle(e) {
-        this.setState({
-            title: e.target.value
-        });
-    }
-
-    onChangeBody(e) {
-        this.setState({
-            body: e.target.value
-        });
-    }
-
-    onChangeIsLive(e) {
-        this.setState({
-            isLive: !this.state.isLive
-        });
+    
+    constructor(props) {
+        super(props);
     }
 
     async onSubmit(e) {
         e.preventDefault();
-
-        //console.log(`Form submitted.`);
-		//console.log(`Poem Title: ${this.state.title}`);
-		//console.log(`Poem Body: ${this.state.body}`);
-        //console.log(`Poem isLive: ${this.state.isLive}`);
         
         const newPoem = {
-            title: this.state.title,
-            body: this.state.body,
-            isLive: this.state.isLive,
-            author: this.state.author
+            title: e.target.title.value,
+            body: e.target.body.value,
+            isLive: e.target.isLive.value,
+            author: "test_author" //TODO: Make this the logged in user
         }
-
-        //createPoem({title=this.state.title, body=this.state.body, isLive = this.state.isLive, author=this.state.author});
 
         createPoem(newPoem);
 
-        this.setState({
-            title: '',
-            body: '',
-            isLive: false,
-            author: 'should_be_username' //TODO: Figure out a way to pass logged in username here (Malik)
-        })
     }
 
 
@@ -83,18 +89,16 @@ export default class SubmitPage extends Component {
 					<div className="form-group">
 						<label>Title: </label>
 						<input 	
-								type="text"
+                                type="text"
+                                name="title"
 								className="form-control"
-								value={this.state.title}
-								onChange={this.onChangeTitle}
 								/>
 					</div>
 					<div className="form-group">
 						<label>Body: </label>
 						<textarea
-								className="form-control"
-								value={this.state.body}
-								onChange={this.onChangeBody}
+                                className="form-control"
+                                name="body"
 								/>	
 					</div>
 
@@ -104,9 +108,6 @@ export default class SubmitPage extends Component {
                                 id="isLive"
                                 type="checkbox"
                                 name="isLive"
-                                onChange={this.onChangeIsLive}
-                                checked={this.state.isLive}
-                                value={this.state.isLive}
                                 />
                         <label className="form-check-label" htmlFor="completedCheckbox">
                             Make poem public
@@ -120,4 +121,5 @@ export default class SubmitPage extends Component {
 			</div>
         )
     }
+    
 }
