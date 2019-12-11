@@ -1,3 +1,5 @@
+//TODO: There seem to be a lot of bugs with a redundant /public/ path in the pubRoot.get calls (Malik)
+
 import {getAxiosInstance} from "../config/Axios";
 
 const pubRoot = getAxiosInstance('/public');
@@ -16,7 +18,7 @@ export async function getAllPublicPoems() {
 
 //Returns specific poem by id
 export async function getPoem(id) {
-    return (await pubRoot.get(`/public/${id}`))['data']['result'];
+    return (await pubRoot.get(`/${id}`))['data']['result'];
 }
 
 
