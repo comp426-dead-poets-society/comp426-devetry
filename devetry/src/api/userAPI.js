@@ -1,4 +1,4 @@
-import {getAxiosInstance} from "../../config/Axios";
+import {getAxiosInstance} from "../config/Axios";
 
 const userRoot = getAxiosInstance('/user');
 

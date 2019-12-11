@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/" component={MainPage} />
           <Route path="/users" component={UserPage} />
           <Route path="/search" component={SearchPage} />
-          <Route path="/post" component={PostPage} />
+          <Route path="/post/:id" component={PostPage} />
           <Route path="/submit" component={SubmitPage} />
           <Route component={NotFound} />
         </Switch>

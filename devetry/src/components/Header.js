@@ -11,7 +11,7 @@ class Header extends Component {
                     <ModalLogin />
                     :
                     <h3>
-                        <span className="is-italic is-size-6">logged in as</span> {this.props.loggedIn.user.name}
+                        <span className="is-italic is-size-6">Logged in as</span> {this.props.loggedIn.user.name}
                     </h3>
                 }
                 <Logout />
