@@ -16,7 +16,6 @@ export default class MainPage extends Component {
 
     async componentDidMount() {
         console.log('I was triggered during componentDidMount')
-        //this.setState({ poemId: this.props.match.params.id });
         let poems;
         try {
             poems = await getAllPublicPoems();
