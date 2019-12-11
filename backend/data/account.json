@@ -1,10 +1,16 @@
 {
   "users": {
     "samlowe": {
-      "passwordHash": "$2b$10$aHvuj2871Sk/O7B/dOxCYOXvPZhX4a1UvlOwMNZr0f/jSi2AXFM9C"
+      "passwordHash": "$2b$10$aHvuj2871Sk/O7B/dOxCYOXvPZhX4a1UvlOwMNZr0f/jSi2AXFM9C",
+      "data": {
+        "color": "#F08080"
+      }
     },
     "malik": {
-      "passwordHash": "$2b$10$dA6uzG5KRC9z6Fvl9noLaO2xKcAaqnKPc4ksRHc4UuMQ68ZeW08Pe"
+      "passwordHash": "$2b$10$dA6uzG5KRC9z6Fvl9noLaO2xKcAaqnKPc4ksRHc4UuMQ68ZeW08Pe",
+      "data": {
+        "color": "#F08080"
+      }
     }
   }
 }
