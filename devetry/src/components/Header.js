@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import ModalLogin from "./ModalLogin"
 import Logout from "./Logout"
+import SearchField from './SearchField';
 
 class Header extends Component {
     render() {

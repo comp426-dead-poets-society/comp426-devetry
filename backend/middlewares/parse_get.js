@@ -12,7 +12,7 @@ export function parseGet(req, res, next) {
                 }
                 return Object.keys(result);
             }
-            return Object.keys(store.data);
+            return store.data;
         };
         next();
         return;

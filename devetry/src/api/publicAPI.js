@@ -21,6 +21,14 @@ export async function getPoem(id) {
     return (await pubRoot.get(`/${id}`))['data']['result'];
 }
 
+//Returns a list of poems that match the search string
+export async function searchPoemTitles(searchString) {
+    let poems = (await getAllPublicPoems());
+    delete poems.counter; delete poems.public;
+    const poemArray = Object.keys(poems).map(i => poems[i]);
+    let result = poemArray.filter((poem) => {return poem.title.toLowerCase().includes(searchString.toLowerCase())})
+    return result
+}
 
 
 /*===LIKE POEM===*/
