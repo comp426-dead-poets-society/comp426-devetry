@@ -69,8 +69,8 @@ export default class SubmitPage extends Component {
           <p class="title">
             Create New Poem
           </p>
-
-          <form class="is-expanded" onSubmit={this.onSubmit}>
+          <div class="panel-block">
+          <form class="field is-expanded control" onSubmit={this.onSubmit}>
             <div class="field is-expanded" className="form-group">
               <label class="label">Title: </label>
               <div class="control is-expanded">
@@ -87,7 +87,6 @@ export default class SubmitPage extends Component {
             <div class="field" className="form-group">
               <label class="label">P5.js Embed Link: </label>
               <div class="control is-expanded">
-
                 <textarea
                   class="textarea"
                   className="form-control"
@@ -107,7 +106,7 @@ export default class SubmitPage extends Component {
                     type="checkbox"
                     name="isLive"
                   />
-                  Make poem public
+                   Make poem public
                 </label>
               </div>
             </div>
@@ -118,6 +117,7 @@ export default class SubmitPage extends Component {
               </div>
             </div>
           </form>
+          </div>
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
