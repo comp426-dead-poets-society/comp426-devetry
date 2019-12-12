@@ -7,10 +7,6 @@ import Loading from "../components/Loading"
 
 
 export default class UserPage extends Component {
-    // make sure the user is logged in at all
-    // make sure the user page we're attempting to access matches the
-    // user ID
-
     constructor(props) {
         super(props);
 
@@ -23,7 +19,6 @@ export default class UserPage extends Component {
 
     async componentDidMount() {
         console.log('I was triggered during componentDidMount');
-        console.log(this.props.loggedIn);
         let poems;
         try {
             poems = await getAllUserPoems();
@@ -38,13 +33,14 @@ export default class UserPage extends Component {
 
     render() {
         let postElements = [];
-        console.log(this.props.loggedIn);
-        if (this.props.loggedIn == undefined) {
+        console.log("RENDER");
+        if (this.props.loggedIn == "invalid") {
             return (<div> You're not logged in! </div>)
         }
 
         for (var poem in this.state.poemIds){
             postElements.push(<Post poemId={poem} key={poem}/> );
+            //edit and delete buttons
         }        
         // append the poems
         return (
