@@ -65,10 +65,7 @@ export default class Post extends Component {
                     <p class="subtitle">
                         {this.state.author}
                     </p>
-                        {this.state.body == /http.*/ ? 
                         <iframe style={{ width: "640px", height: "360px", overflow: "hidden" }}  scrolling="no" frameborder="0" src={`${this.state.body}`}></iframe>
-                        :
-                        <p>{this.state.body}</p>}
                     <hr />
                     <p>
                         Created on {(new Date(this.state.createdAt).toDateString())}
