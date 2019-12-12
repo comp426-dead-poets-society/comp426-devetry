@@ -45,7 +45,7 @@ export async function getAllComments() {
 //returns all comments for particular poem
 export async function getComments(parentId) {
     try {
-        return await privRoot.get(`/${parentId}`);
+        return (await privRoot.get(`/${parentId}`))['data']['result'];
     } catch {
         return []
     }
@@ -54,7 +54,7 @@ export async function getComments(parentId) {
 //returns single comment
 export async function getComment(parentId,commentId) {
     try {
-        return await privRoot.get(`/${parentId}/${commentId}`);
+        return (await privRoot.get(`${parentId}/${commentId}`))['data']['result'];
     } catch {
         return []
     }

@@ -55,7 +55,6 @@ export default class Post extends Component {
         if (this.state.createdAt === undefined) {
             return (<div> 404. Poem does not exist!</div>)
         }
-        console.log(`${this.state.shortUrl}`);
         return (
         <a href={this.state.user ? "#" : `/post/${this.state.poemId}`}> 
             <div class="card">
@@ -82,15 +81,6 @@ export default class Post extends Component {
                         <span>
                             <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount} />
                         </span>
-                    </p>
-                    <p class="card-footer-item">
-                        <div>
-                            <form>
-                                <textarea
-                                    value={this.state.shortUrl}
-                                />
-                            </form>
-                        </div>
                     </p>
                 </footer>
             </div>
