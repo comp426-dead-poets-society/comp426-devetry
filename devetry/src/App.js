@@ -29,14 +29,11 @@ function App() {
       <div className="App">
         <Header loggedIn={loggedIn} />
         <hr />
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/users" component={UserPage} />
-          <Route path="/search" component={SearchPage} />
-          <Route path="/post/:id" component={PostPage} />
-          <Route path="/submit" component={SubmitPage} />
-          <Route component={NotFound} />
-        </Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/users" render={() => <UserPage loggedIn={loggedIn}/>} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/post/:id" component={PostPage} />
+        <Route path="/submit" component={SubmitPage} />
       </div>
     </Router>
   );
