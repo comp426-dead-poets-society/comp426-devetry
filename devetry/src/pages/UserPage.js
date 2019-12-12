@@ -45,8 +45,12 @@ export default class UserPage extends Component {
             postElements.push(
                 <div class="card">
                     <div class="card-content has-text-right" style={{ 'background-color': this.props.loggedIn.user.data.color }}>
-                        <EditButton poemId={this.state.poemId} />
-                        <DeleteButton poemId={this.state.poemId} />
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <EditButton class="button level-item" poemId={this.state.poemId} />
+                                <DeleteButton class="button level-item" poemId={this.state.poemId} />
+                            </div>
+                        </nav>
                     </div>
                 </div>
             )
