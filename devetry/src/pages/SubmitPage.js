@@ -131,7 +131,7 @@ export default class SubmitPage extends Component {
             </div>
 
             <div class="field" className="form-group">
-              <label class="label">Body: </label>
+              <label class="label">P5.js Embed Link: </label>
               <div class="control">
                 <textarea
                   class="textarea"
