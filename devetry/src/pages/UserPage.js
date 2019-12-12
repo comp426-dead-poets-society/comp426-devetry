@@ -6,8 +6,6 @@ import Loading from "../components/Loading"
 import DeleteButton from '../components/DeleteButton';
 import EditButton from '../components/EditButton';
 
-
-
 export default class UserPage extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +34,7 @@ export default class UserPage extends Component {
 
     render() {
         let postElements = [];
-        console.log("RENDER");
+        // console.log("RENDER");
         if (this.props.loggedIn == "invalid") {
             return (<div> You're not logged in! </div>)
         }
