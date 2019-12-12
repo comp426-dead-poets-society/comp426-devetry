@@ -58,8 +58,11 @@ export default class SubmitPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomWord: ''
+      randomWord: '',
+      author: ''
     }
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   async componentDidMount(){
@@ -67,19 +70,31 @@ export default class SubmitPage extends Component {
 
     console.log(`${randomWordApi}`);
 
+    console.log(`${Object.keys(this.props.loggedIn)}`)
+
     this.setState({
-      randomWord: randomWordApi
+      randomWord: randomWordApi,
     })
+
+    if (this.props.loggedIn != 'invalid') {
+      this.setState({
+        author: this.props.loggedIn.user.name
+      })
+    }
+
+    console.log(`${this.state.author}`)
   }
 
   async onSubmit(e) {
     e.preventDefault();
 
+    let user = this.state.author;
+
     const newPoem = {
       title: e.target.title.value,
       body: e.target.body.value,
       isLive: e.target.isLive.value,
-      author: "test_author" //TODO: Make this the logged in user
+      author: user
     }
 
     await createPoem(newPoem);
@@ -90,6 +105,9 @@ export default class SubmitPage extends Component {
 
 
   render() {
+    if (this.props.loggedIn == "invalid") {
+      return (<div> You're not logged in! </div>)
+    }
     return (
       <div class="card">
         <div class="card-content">
