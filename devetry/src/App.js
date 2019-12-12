@@ -29,10 +29,10 @@ function App() {
       <div className="App">
         <Header loggedIn={loggedIn} />
         <hr />
-        <Route exact path="/" component={MainPage} />
+        <Route exact path="/" render={() => <MainPage loggedIn={loggedIn}/>} />
         <Route path="/user" render={() => <UserPage loggedIn={loggedIn}/>} />
-        <Route path="/search" component={SearchPage} />
-        <Route path="/post/:id" component={PostPage} />
+        <Route path="/search" render={() => <SearchPage loggedIn={loggedIn}/>} />
+        <Route path="/post/:id" render={() => <PostPage loggedIn={loggedIn}/>} />
         <Route path="/submit" render={() => <SubmitPage loggedIn={loggedIn}/>} />
       </div>
     </Router>
