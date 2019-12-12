@@ -26,6 +26,7 @@ export async function searchPoemTitles(searchString) {
     let poems = (await getAllPublicPoems());
     delete poems.counter; delete poems.public;
     const poemArray = Object.keys(poems).map(i => poems[i]);
+    let i = 0; poemArray.forEach(poem => {poem.id = i; i++})
     let result = poemArray.filter((poem) => {return poem.title.toLowerCase().includes(searchString.toLowerCase())})
     return result
 }

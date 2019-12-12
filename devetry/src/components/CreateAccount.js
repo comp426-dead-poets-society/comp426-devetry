@@ -28,8 +28,7 @@ function CreateAccount() {
             break;          
         }
         let data = { "name":name, "pass":pass, "data":{"color":color} }
-        await createAccount(data);
-        window.location.reload();
+        if (await createAccount(data)) { window.location.reload() };
       }}>
         <div className="field">
           <input className="input" placeholder="Username" type="text" name="name" />

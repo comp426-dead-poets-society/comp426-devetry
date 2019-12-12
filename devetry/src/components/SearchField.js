@@ -33,6 +33,7 @@ export default function SearchField() {
                     setIsSearching(false);
                     // Set results state
                     setResults(result);
+                    console.log(result);
                 } else {
                     setResults([]);
                 }

@@ -22,7 +22,8 @@ export default class UserPage extends Component {
         let poems;
         try {
             poems = await getAllUserPoems();
-            console.log(poems);
+            delete poems.counter
+            console.log(poems)
             this.setState({
                 poemIds: Object.keys(poems)
             });
@@ -34,17 +35,18 @@ export default class UserPage extends Component {
     render() {
         let postElements = [];
         console.log("RENDER");
+        console.log(this.props.loggedIn.user.name)
         if (this.props.loggedIn == "invalid") {
             return (<div> You're not logged in! </div>)
         }
 
         for (var poem in this.state.poemIds){
-            postElements.push(<Post poemId={poem} key={poem}/> );
+            postElements.push(<Post poemId={poem} key={poem} user={this.props.loggedIn.user.name}/> );
             //edit and delete buttons
         }        
         // append the poems
         return (
-            <div>
+            <div style={{'background-color': this.props.loggedIn.user.data.color}}>
                 {postElements}
             </div>
         )

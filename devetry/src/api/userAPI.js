@@ -140,7 +140,7 @@ export async function getAllUserPoems() {
 }
 
 //retunrs single poem in user
-async function getUserPoem(id) {
+export async function getUserPoem(id) {
     return (await userRoot.get(`/${id}`))['data']['result']
 }
 

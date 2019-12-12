@@ -11,6 +11,12 @@
       "data": {
         "color": "#F08080"
       }
+    },
+    "test94949493": {
+      "passwordHash": "$2b$10$DKXjLWRVKdDNUKy1tsq2qO4CEui0RAxDxvlp6Fue7OK0jqoRQiRMy",
+      "data": {
+        "color": "#BA55D3"
+      }
     }
   }
 }

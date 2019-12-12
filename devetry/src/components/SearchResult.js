@@ -1,21 +1,24 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class SearchResult extends Component {
     render() {
         return (
-            <div className={"box"} key={this.props.poem.id}>
-                <article className={"media"}>
-                    <div className={"media-content"}>
-                        <div className={"content"}>
-                            <p>
-                                <strong>{this.props.poem.title}</strong>
-                                <br />
-                                {this.props.poem.author}
-                            </p>
+            <Link to={`/post/${this.props.poem.id}`}>
+                <div className={"box"}>
+                    <article className={"media"}>
+                        <div className={"media-content"}>
+                            <div className={"content"}>
+                                <p>
+                                    <strong>{this.props.poem.title}</strong>
+                                    <br />
+                                    {this.props.poem.author}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </div>
+                    </article>
+                </div>
+            </Link>
         )
     }
 }
