@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { getPoem } from '../api/publicAPI';
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
- 
+
 export default class Post extends Component {
- 
+
     constructor(props) {
         super(props);
- 
+
         this.state = {
             poemId: undefined,
             title: '',
@@ -18,8 +18,8 @@ export default class Post extends Component {
             likeCount: 0
         }
     }
- 
- 
+
+
     async componentDidMount() {
         console.log('I was triggered during componentDidMount')
         this.setState({ poemId: this.props.poemId });
@@ -38,10 +38,10 @@ export default class Post extends Component {
         } catch (error) {
             console.log(`This poem is ${poem} and does not exist.`)
         }
- 
- 
+
+
     }
- 
+
     render() {
         console.log('I was triggered during render')
         if (this.state.createdAt === undefined) {
