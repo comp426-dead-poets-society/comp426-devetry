@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect  } from 'react';
-import {getAllUserPoems} from "../api/userAPI";
+import React, { Component, useState, useEffect } from 'react';
+import { getAllUserPoems } from "../api/userAPI";
 import Post from '../components/Post';
 import { getStatus } from "../api/accountAPI"
 import Loading from "../components/Loading"
@@ -39,17 +39,21 @@ export default class UserPage extends Component {
             return (<div> You're not logged in! </div>)
         }
 
-        for (var poem in this.state.poemIds){
-            postElements.push(<Post poemId={poem} key={poem} user={this.props.loggedIn.user.name}/> );
+        for (var poem in this.state.poemIds) {
+            postElements.push(<Post poemId={poem} key={poem} user={this.props.loggedIn.user.name} />);
             //edit and delete buttons
-            postElements.push(<div>
-                <EditButton poemId={this.state.poemId} />
-                <DeleteButton poemId={this.state.poemId} />
-            </div>)
-        }        
+            postElements.push(
+                <div class="card">
+                    <div class="card-content has-text-right" style={{ 'background-color': this.props.loggedIn.user.data.color }}>
+                        <EditButton poemId={this.state.poemId} />
+                        <DeleteButton poemId={this.state.poemId} />
+                    </div>
+                </div>
+            )
+        }
         // append the poems
         return (
-            <div style={{'background-color': this.props.loggedIn.user.data.color}}>
+            <div style={{ 'background-color': this.props.loggedIn.user.data.color}}>
                 {postElements}
             </div>
         )

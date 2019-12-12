@@ -4,6 +4,10 @@ import { deleteUserPoem } from '../api/userAPI';
 
 export class DeleteButton extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <React.Fragment>
