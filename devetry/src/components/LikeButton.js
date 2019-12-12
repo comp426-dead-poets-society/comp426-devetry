@@ -1,10 +1,14 @@
-import React, { Component, useState} from 'react'
+import React, { Component, useState } from 'react'
 import '../App.scss';
 import { likePoem, getNumLikes } from '../api/publicAPI';
 
 export class LikeButton extends Component {
-    state = {
-        count: this.props.likeCount
+    constructor(props){
+        super(props);
+        this.state = {
+            count: this.props.likeCount
+        }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     async componentDidMount() {
@@ -12,27 +16,29 @@ export class LikeButton extends Component {
         try {
             await likePoem(this.props.poemId);
         }
-        catch(error){
+        catch (error) {
             console.log("Uh oh.");
         }
     }
 
-    handleClick = () => {
+    handleClick(e) {
+
+        e.preventDefault()
+
         this.setState((prevState, { count }) => ({
-          count: prevState.count + 1
+            count: prevState.count + 1
         }));
     }
 
-    //TODO: Need to find a way to dynamically update likes on the page
     render() {
         let likes = this.state.count;
         return (
             <React.Fragment>
-                <div>
-                    <p>
-                        <button onClick={ this.handleClick } className='likeButton'
-                        type='button'>Like!</button> {this.state.count}
-                    </p>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-success is-light is-small" onClick={(e) => {this.handleClick(e)}}
+                        >Like!</button> {this.state.count}
+                    </div>
                 </div>
             </React.Fragment>
         )

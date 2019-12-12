@@ -50,11 +50,13 @@ export default function SearchField() {
     // Pretty standard UI with search input and results
     return (
         <>
-            <div className={"searchField"}>
-                <input
+            <div class="field" className={"searchField"}>
+                <div class="control">
+                <input class="input"
                     placeholder="Search Poems"
                     onChange={e => setSearchTerm(e.target.value)}
                 />
+                </div>
             </div>
 
             {results.map(result => (
