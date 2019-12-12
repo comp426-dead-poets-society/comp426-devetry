@@ -35,7 +35,6 @@ export default class UserPage extends Component {
     render() {
         let postElements = [];
         console.log("RENDER");
-        console.log(this.props.loggedIn.user.name)
         if (this.props.loggedIn == "invalid") {
             return (<div> You're not logged in! </div>)
         }
