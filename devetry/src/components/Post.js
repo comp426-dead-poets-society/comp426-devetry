@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getPoem } from '../api/publicAPI';
+import { getUserPoem } from '../api/userAPI' 
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
  
@@ -25,7 +26,12 @@ export default class Post extends Component {
         this.setState({ poemId: this.props.poemId });
         let poem;
         try {
-            poem = await getPoem(this.props.poemId);
+            if (this.props.user) {
+                poem = await getUserPoem(this.props.poemId);
+            } else {
+                poem = await getPoem(this.props.poemId);
+            }
+            
             console.log(`This poem: ${poem.title}`)
             this.setState({
                 title: poem.title,

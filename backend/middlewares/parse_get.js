@@ -10,7 +10,7 @@ export function parseGet(req, res, next) {
                 if (typeof result === 'undefined') {
                     return [];
                 }
-                return Object.keys(result);
+                return result;
             }
             return store.data;
         };

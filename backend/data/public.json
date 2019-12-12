@@ -4,16 +4,23 @@
     "body": "test",
     "author": "test_author",
     "createdAt": 1576040815777,
-    "likeCount": 5
+    "likeCount": 6
   },
   "1": {
     "title": "Poetry?",
     "body": "To be or not to be",
     "author": "test_author",
     "createdAt": 1576041221832,
-    "likeCount": 3770
+    "likeCount": 3786
   },
-  "counter": 2,
+  "2": {
+    "title": "yo yo yo ",
+    "body": "yo yo yo yo yo yo yooo",
+    "author": "test_author",
+    "createdAt": 1576119187428,
+    "likeCount": 0
+  },
+  "counter": 3,
   "public": {
     "1": {
       "likeCount": 1
