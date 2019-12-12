@@ -3,6 +3,8 @@ import {getAllUserPoems} from "../api/userAPI";
 import Post from '../components/Post';
 import { getStatus } from "../api/accountAPI"
 import Loading from "../components/Loading"
+import DeleteButton from '../components/DeleteButton';
+import EditButton from '../components/EditButton';
 
 
 
@@ -23,7 +25,7 @@ export default class UserPage extends Component {
         try {
             poems = await getAllUserPoems();
             delete poems.counter
-            console.log(poems)
+            // console.log(poems)
             this.setState({
                 poemIds: Object.keys(poems)
             });
@@ -35,7 +37,6 @@ export default class UserPage extends Component {
     render() {
         let postElements = [];
         console.log("RENDER");
-        console.log(this.props.loggedIn.user.name)
         if (this.props.loggedIn == "invalid") {
             return (<div> You're not logged in! </div>)
         }
@@ -43,6 +44,10 @@ export default class UserPage extends Component {
         for (var poem in this.state.poemIds){
             postElements.push(<Post poemId={poem} key={poem} user={this.props.loggedIn.user.name}/> );
             //edit and delete buttons
+            postElements.push(<div>
+                <EditButton poemId={this.state.poemId} />
+                <DeleteButton poemId={this.state.poemId} />
+            </div>)
         }        
         // append the poems
         return (
