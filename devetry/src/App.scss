@@ -1,7 +1,7 @@
 @import "~bulma/bulma.sass";
 
 .App {
-    background-color: #000000;
+    background-color: #eeeeee;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,6 @@ h3.loading {
       margin-right: 1em;
     }
   
-  
     display: flex;
     align-items: baseline;
 }
@@ -43,4 +42,9 @@ h3.loading {
 .card{
     margin-bottom: 1em;
     margin-top: 1em;
+}
+
+.navbar {
+    background-color: #eeeeee;
+    color: #ffffff; 
 }
