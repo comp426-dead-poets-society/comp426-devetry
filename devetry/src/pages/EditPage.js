@@ -66,6 +66,8 @@ export default class SubmitPage extends Component {
 
     render() {
         return (
+            <div class="card">
+            <div class="card-content">
             <div style={{marginTop: 10}}>
 				<h3>Edit Poem</h3>
 				<form onSubmit={this.onSubmit}>
@@ -74,14 +76,16 @@ export default class SubmitPage extends Component {
 						<input 	
                                 type="text"
                                 name="title"
-                                className="form-control"
+                                class="input"
+                                // className="form-control"
                                 value={this.state.title}
 								/>
 					</div>
 					<div className="form-group">
 						<label>P5.js Embed Link: </label>
 						<textarea
-                                className="form-control"
+                                // className="form-control"
+                                class="textarea"
                                 name="body"
                                 value={this.state.body}
 								/>	
@@ -89,7 +93,7 @@ export default class SubmitPage extends Component {
 
                     <div className="form-check">
                         <input
-                                className="form-check-input"
+                                // className="form-check-input"
                                 id="isLive"
                                 type="checkbox"
                                 name="isLive"
@@ -101,10 +105,12 @@ export default class SubmitPage extends Component {
                     </div> 
 
 					<div className="form-group">
-						<input type="submit" value="Create Poem" className="btn btn-primary" />
+						<input type="submit" value="Create Poem" className="btn btn-primary" class="button is-primary" />
 					</div>
 				</form>
 			</div>
+            </div>
+            </div>
         )
     }
     
