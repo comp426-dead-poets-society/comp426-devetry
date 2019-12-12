@@ -66,9 +66,9 @@ export default class SubmitPage extends Component {
       <div class="card">
         <div class="card-content">
 
-          <p class="title">
+          <h3 class="title">
             Create New Poem
-          </p>
+          </h3>
           <div class="panel-block">
           <form class="field is-expanded control" onSubmit={this.onSubmit}>
             <div class="field is-expanded" className="form-group">
@@ -79,7 +79,6 @@ export default class SubmitPage extends Component {
                   type="text"
                   name="title"
                   placeholder="Title goes here"
-                  className="form-control"
                 />
               </div>
             </div>
@@ -89,7 +88,6 @@ export default class SubmitPage extends Component {
               <div class="control is-expanded">
                 <textarea
                   class="textarea"
-                  className="form-control"
                   name="body"
                   placeholder="Think of something creative. Enter your poem here."
                   rows="10"

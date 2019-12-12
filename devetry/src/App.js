@@ -8,7 +8,7 @@ import MainPage from './pages/MainPage'
 import UserPage from './pages/UserPage'
 import SearchPage from './pages/SearchPage'
 import PostPage from './pages/PostPage'
-import NotFound from './pages/NotFound'
+import EditPage from './pages/EditPage'
 import SubmitPage from './pages/SubmitPage'
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
         <Route path="/search" render={(props) => <SearchPage {...props} loggedIn={loggedIn}/>} />
         <Route path="/post/:id" render={(props) => <PostPage {...props} loggedIn={loggedIn}/>} />
         <Route path="/submit" render={(props) => <SubmitPage {...props} loggedIn={loggedIn}/>} />
+        <Route path="/edit/:id" render={(props) => <EditPage {...props} loggedIn={loggedIn}/>} />
       </div>
     </Router>
   );

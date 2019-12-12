@@ -47,8 +47,8 @@ export default class UserPage extends Component {
                     <div class="card-content has-text-right" style={{ 'background-color': this.props.loggedIn.user.data.color }}>
                         <nav class="level is-mobile">
                             <div class="level-left">
-                                <EditButton class="button level-item" poemId={this.state.poemId} />
-                                <DeleteButton class="button level-item" poemId={this.state.poemId} />
+                               <EditButton class="button level-item" poemId={poem} />
+                               <DeleteButton class="button level-item" poemId={poem} />
                             </div>
                         </nav>
                     </div>

@@ -27,13 +27,15 @@ export default class SubmitPage extends Component {
             })
         }
 
-        this.setState({ poemId: this.props.poemId });
+
+        this.setState({ poemId: this.props.match.params.id });
         let poem;
         try {
             if (this.props.user) {
-                poem = await getUserPoem(this.props.poemId);
-            } else {
-                poem = await getPoem(this.props.poemId);
+                poem = await getUserPoem(this.props.match.params.id);
+             } 
+        else {
+            poem = await getPoem(this.props.match.params.id);
             }
             
             console.log(`This poem: ${poem.title}`)
@@ -58,14 +60,17 @@ export default class SubmitPage extends Component {
             isLive: e.target.isLive.value,
         }
 
-        await updatePoemTitle(this.props.poemId, samePoem.title);
-        await updatePoemBody(this.props.poemId, samePoem.body);
-        await updateLive(this.props.poemId, samePoem.isLive);
+        await updatePoemTitle(this.props.match.params.id, samePoem.title);
+        await updatePoemBody(this.props.match.params.id, samePoem.body);
+        await updateLive(this.props.match.params.id, samePoem.isLive);
+
     }
 
 
     render() {
         return (
+            <div class="card">
+            <div class="card-content"> 
             <div style={{marginTop: 10}}>
 				<h3>Edit Poem</h3>
 				<form onSubmit={this.onSubmit}>
@@ -74,26 +79,29 @@ export default class SubmitPage extends Component {
 						<input 	
                                 type="text"
                                 name="title"
-                                className="form-control"
+                                class="input"
                                 value={this.state.title}
 								/>
 					</div>
 					<div className="form-group">
 						<label>P5.js Embed Link: </label>
 						<textarea
-                                className="form-control"
+                                // className="form-control"
+                                class="textarea"
                                 name="body"
                                 value={this.state.body}
+                                placeholder={this.state.body}
 								/>	
 					</div>
 
                     <div className="form-check">
                         <input
-                                className="form-check-input"
+                                // className="form-check-input"
                                 id="isLive"
                                 type="checkbox"
                                 name="isLive"
                                 value={this.state.isLive}
+                                class="checkbox"
                                 />
                         <label className="form-check-label" htmlFor="completedCheckbox">
                             Make poem public
@@ -101,10 +109,12 @@ export default class SubmitPage extends Component {
                     </div> 
 
 					<div className="form-group">
-						<input type="submit" value="Create Poem" className="btn btn-primary" />
+						<input type="submit" value="Edit Poem" className="btn btn-primary" class="button is-primary" />
 					</div>
 				</form>
 			</div>
+            </div>
+            </div>
         )
     }
     
