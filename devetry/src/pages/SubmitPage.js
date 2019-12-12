@@ -9,52 +9,6 @@ import getRandomWord from '../api/randomWordAPI';
 
 export default class SubmitPage extends Component {
 
-  /*
-  constructor(props) {
-
-      super(props);
-
-      let propTypes = {
-          onChange: PropTypes.func
-        };
-
-      return (
-        <div className="box has-background-white content" style={{width: '500px'}}>
-          <h3 className="has-text-dark">New Todo</h3>
-          <form onSubmit={async (e) => {
-            e.preventDefault();
-            const title = e.target.title.value;
-            const body = e.target.body.value;
-            const isLive = e.target.isLive.value;
-            e.target.title.value = '';
-            e.target.body.value = '';
-            e.target.isLive.value = false;
-            let poem = {
-                title: title,
-                body: body,
-                isLive: isLive,
-                author: "test"
-            }
-            let poems = (await createPoem(poem));
-            if (props.onChange) props.onChange(poems);
-          }}>
-            <div className="field">
-              <input className="input" autoComplete={'off'} placeholder="Title" type="text" name="title"/>
-            </div>
-            <div className="field">
-              <input className="input" placeholder="Body" type="text" name="body"/>
-            </div>
-            <div className="field">
-              <input className="form-check-input" placeholder="Live" type="checkbox" name="isLive"/>
-            </div>
-            <input className="button is-primary" type="submit" value={"Add"}/>
-          </form>
-        </div>
-      );
-    }
-    */
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -131,8 +85,9 @@ export default class SubmitPage extends Component {
             </div>
 
             <div class="field" className="form-group">
-              <label class="label">Body: </label>
+              <label class="label">P5.js Embed Link: </label>
               <div class="control is-expanded">
+
                 <textarea
                   class="textarea"
                   className="form-control"
