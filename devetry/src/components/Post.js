@@ -3,6 +3,7 @@ import { getPoem } from '../api/publicAPI';
 import { getUserPoem } from '../api/userAPI' 
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
+import { Link } from 'react-router-dom';
 
 export default class Post extends Component {
 
@@ -16,7 +17,8 @@ export default class Post extends Component {
             author: '',
             createdAt: undefined,
             updatedAt: undefined,
-            likeCount: 0
+            likeCount: 0,
+            user: undefined
         }
     }
 
@@ -24,6 +26,7 @@ export default class Post extends Component {
     async componentDidMount() {
         console.log('I was triggered during componentDidMount')
         this.setState({ poemId: this.props.poemId });
+        this.setState({ user: this.props.user });
         let poem;
         try {
             if (this.props.user) {
@@ -54,6 +57,7 @@ export default class Post extends Component {
         }
         console.log(`${this.state.shortUrl}`);
         return (
+        <a href={this.state.user ? "#" : `/post/${this.state.poemId}`}> 
             <div class="card">
                 <div class="card-content">
                     <p class="title">
@@ -62,9 +66,8 @@ export default class Post extends Component {
                     <p class="subtitle">
                         {this.state.author}
                     </p>
-                    <p class="content">
-                        {this.state.body}
-                    </p>
+                        <iframe style={{ width: "640px", height: "360px", overflow: "hidden" }}  scrolling="no" frameborder="0" src={`${this.state.body}`}></iframe>
+                    <hr />
                     <p>
                         Created on {(new Date(this.state.createdAt).toDateString())}
                     </p>
@@ -91,6 +94,7 @@ export default class Post extends Component {
                     </p>
                 </footer>
             </div>
+            </a>
         )
     }
 }
