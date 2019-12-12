@@ -80,15 +80,6 @@ export default class Post extends Component {
                             <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount} />
                         </span>
                     </p>
-                    <p class="card-footer-item">
-                        <div>
-                            <form>
-                                <textarea
-                                    value={this.state.shortUrl}
-                                />
-                            </form>
-                        </div>
-                    </p>
                 </footer>
             </div>
         )
