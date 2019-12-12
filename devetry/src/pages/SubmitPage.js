@@ -5,6 +5,7 @@ import { createPoem } from '../api/userAPI';
 import '../App.scss';
 
 import PropTypes from 'prop-types';
+import getRandomWord from '../api/randomWordAPI';
 
 export default class SubmitPage extends Component {
 
@@ -56,6 +57,19 @@ export default class SubmitPage extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      randomWord: ''
+    }
+  }
+
+  async componentDidMount(){
+    let randomWordApi = await getRandomWord();
+
+    console.log(`${randomWordApi}`);
+
+    this.setState({
+      randomWord: randomWordApi
+    })
   }
 
   async onSubmit(e) {
@@ -130,8 +144,16 @@ export default class SubmitPage extends Component {
               </div>
             </div>
           </form>
-
         </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span class="has-text-centered">
+                Here's a random word for inspiration! <br></br>
+                <span class="has-text-weight-bold is-uppercase">{this.state.randomWord}</span>
+            </span>
+          </p>
+        </footer>
+
       </div>
     )
   }

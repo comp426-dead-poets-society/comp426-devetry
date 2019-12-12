@@ -2,11 +2,10 @@ import axios from 'axios';
 
 export const apiKey = 'ERLWJG93';
 
-export const randomWordUrl = 'https://random-word-api.herokuapp.com/';
-
-export default async function shortenURL(url) {
-  let requestUrl = `${randomWordUrl}/word?key=${apiKey}&number=1`
-    console.log(`The request URL ${requestUrl}`)
-    let randomWord = await axios.get(requestUrl);
+export default async function getRandomWord() {
+  let requestUrl = `https://random-word-api.herokuapp.com/word?key=${apiKey}&number=1`
+    let randomWord = await axios.get(requestUrl).then(response => {
+      return response.data
+    })
     return randomWord;
 }
