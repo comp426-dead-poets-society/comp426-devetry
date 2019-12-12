@@ -26,7 +26,7 @@ function App() {
 
   return (
     <Router>
-      <div loggedIn={loggedIn} className="App">
+      <div className="App">
         <Header loggedIn={loggedIn} />
         <hr />
         <Route exact path="/" component={MainPage} />
