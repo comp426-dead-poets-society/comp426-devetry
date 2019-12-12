@@ -12,7 +12,7 @@ function ModalLogin() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" className="button is-info" onClick={handleShow}>
                 Login or Sign Up
             </Button>
 
