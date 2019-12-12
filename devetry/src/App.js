@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound'
 import SubmitPage from './pages/SubmitPage'
 
 function App() {
+  
   const [loggedIn, setLoggedIn] = useState('checking');
 
   // check whether user is logged in already
