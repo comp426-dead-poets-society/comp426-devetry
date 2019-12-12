@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Button, useRef, useState } from 'react'
 import { getPoem } from '../api/publicAPI';
 import { getUserPoem } from '../api/userAPI' 
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
- 
+
 export default class Post extends Component {
- 
+
     constructor(props) {
         super(props);
- 
+
         this.state = {
             poemId: undefined,
             title: '',
@@ -19,8 +19,8 @@ export default class Post extends Component {
             likeCount: 0
         }
     }
- 
- 
+
+
     async componentDidMount() {
         console.log('I was triggered during componentDidMount')
         this.setState({ poemId: this.props.poemId });
@@ -44,15 +44,15 @@ export default class Post extends Component {
         } catch (error) {
             console.log(`This poem is ${poem} and does not exist.`)
         }
- 
- 
+
     }
- 
+
     render() {
         console.log('I was triggered during render')
         if (this.state.createdAt === undefined) {
             return (<div> 404. Poem does not exist!</div>)
         }
+        console.log(`${this.state.shortUrl}`);
         return (
             <div class="card">
                 <div class="card-content">
@@ -76,6 +76,15 @@ export default class Post extends Component {
                         <span>
                             <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount} />
                         </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <div>
+                            <form>
+                                <textarea
+                                    value={this.state.shortUrl}
+                                />
+                            </form>
+                        </div>
                     </p>
                 </footer>
             </div>
