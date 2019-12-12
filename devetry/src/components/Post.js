@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Button, useRef, useState } from 'react'
 import { getPoem } from '../api/publicAPI';
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
+import shortenUrl from '../api/bitlyAPI';
+
+const copy = require('clipboard-copy');
 
 export default class Post extends Component {
 
@@ -15,7 +18,8 @@ export default class Post extends Component {
             author: '',
             createdAt: undefined,
             updatedAt: undefined,
-            likeCount: 0
+            likeCount: 0,
+            shortUrl: ''
         }
     }
 
@@ -24,8 +28,10 @@ export default class Post extends Component {
         console.log('I was triggered during componentDidMount')
         this.setState({ poemId: this.props.poemId });
         let poem;
+        let bitlyUrl;
         try {
             poem = await getPoem(this.props.poemId);
+            bitlyUrl = await shortenUrl(window.location.href);
             console.log(`This poem: ${poem.title}`)
             this.setState({
                 title: poem.title,
@@ -33,12 +39,12 @@ export default class Post extends Component {
                 author: poem.author,
                 createdAt: poem.createdAt,
                 updatedAt: poem.createdAt,
-                likeCount: poem.likeCount
+                likeCount: poem.likeCount,
+                shortUrl: bitlyUrl
             });
         } catch (error) {
             console.log(`This poem is ${poem} and does not exist.`)
         }
-
 
     }
 
@@ -47,6 +53,7 @@ export default class Post extends Component {
         if (this.state.createdAt === undefined) {
             return (<div> 404. Poem does not exist!</div>)
         }
+        console.log(`${this.state.shortUrl}`);
         return (
             <div class="card">
                 <div class="card-content">
@@ -70,6 +77,15 @@ export default class Post extends Component {
                         <span>
                             <LikeButton poemId={this.state.poemId} likeCount={this.state.likeCount} />
                         </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <div>
+                            <form>
+                                <textarea
+                                    value={this.state.shortUrl}
+                                />
+                            </form>
+                        </div>
                     </p>
                 </footer>
             </div>

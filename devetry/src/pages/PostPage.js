@@ -3,6 +3,7 @@ import { getPoem } from '../api/publicAPI';
 import '../App.scss';
 import LikeButton from '../components/LikeButton';
 import Post from '../components/Post';
+import ShowComments from '../components/ShowComments';
 
 export default class PostPage extends Component {
 
@@ -99,6 +100,7 @@ export default class PostPage extends Component {
                         </p>
                     </div>
                 </div>
+                <ShowComments poemId={this.props.match.params.id} />
             </div>
         )
     }
