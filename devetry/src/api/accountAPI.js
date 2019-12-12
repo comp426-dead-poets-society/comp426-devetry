@@ -14,9 +14,9 @@ export async function login({name, pass}) {
   }
 }
 
-export async function createAccount({name, pass}) {
+export async function createAccount(data) {
   try {
-    await axios.post(`/create`, {name, pass});
+    await axios.post(`/create`, data);
     return true;
   } catch (error) {
     return false;
