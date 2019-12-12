@@ -51,10 +51,13 @@ export default class Post extends Component {
             <div class="card">
                 <div class="card-content">
                     <p class="title">
-                        {this.state.body}
+                        {this.state.title}
                     </p>
                     <p class="subtitle">
                         {this.state.author}
+                    </p>
+                    <p class="content">
+                        {this.state.body}
                     </p>
                     <p>
                         Created on {(new Date(this.state.createdAt).toDateString())}
