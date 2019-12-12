@@ -33,7 +33,7 @@ function App() {
         <Route path="/user" render={() => <UserPage loggedIn={loggedIn}/>} />
         <Route path="/search" component={SearchPage} />
         <Route path="/post/:id" component={PostPage} />
-        <Route path="/submit" component={SubmitPage} />
+        <Route path="/submit" render={() => <SubmitPage loggedIn={loggedIn}/>} />
       </div>
     </Router>
   );
