@@ -52,7 +52,6 @@ export default class Post extends Component {
         if (this.state.createdAt === undefined) {
             return (<div> 404. Poem does not exist!</div>)
         }
-        console.log(`${this.state.shortUrl}`);
         return (
             <div class="card">
                 <div class="card-content">
