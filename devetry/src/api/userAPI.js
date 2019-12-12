@@ -50,7 +50,7 @@ export async function getNumUserPoems(parentId) {
     } catch (error) {
         return 0;
     }
-  }
+}
 
 //Creates a new poem
 export async function createPoem({title="untitled",body="",isLive=false,author}) {
